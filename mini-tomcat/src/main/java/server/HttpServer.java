@@ -57,7 +57,13 @@ public class HttpServer {
                 // 处理请求并响应
                 Response response = new Response(output);
                 response.setRequest(request);
-                response.sendStaticResource();
+                if (request.getUri().startsWith("/servlet")) {
+                    ServletProcessor processor = new ServletProcessor();
+                    processor.process(request, response);
+                } else {
+                    StatisResourceProcessor processor = new StatisResourceProcessor();
+                    processor.process(request, response);
+                }
                 log.info("一次请求处理结束");
                 // 关闭连接
                 socket.close();
