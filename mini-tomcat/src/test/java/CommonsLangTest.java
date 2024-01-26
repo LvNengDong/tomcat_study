@@ -1,3 +1,4 @@
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.StrSubstitutor;
 
 import java.util.HashMap;
@@ -11,10 +12,10 @@ import java.util.Map;
 
 public class CommonsLangTest {
 
-    public static void main(String[] args) {
-        CommonsLangTest test = new CommonsLangTest();
-        test.testStrReplace();
-    }
+    //public static void main(String[] args) {
+    //    CommonsLangTest test = new CommonsLangTest();
+    //    test.testStrReplace();
+    //}
 
     /*
     * org.apache.commons.lang3.text.StrSubstitutor#StrSubstitutor(java.util.Map<java.lang.String,V>)
@@ -32,6 +33,12 @@ public class CommonsLangTest {
 
         System.out.println(replace);
 
+    }
+
+
+    public static void main(String[] args) {
+        String dada = StringUtils.join("121", "dada");
+        System.out.println(dada);
     }
 
 
