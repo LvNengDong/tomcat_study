@@ -1,7 +1,8 @@
+import server.Constants;
 import server.Request;
 import server.Response;
-import server.Servlet;
 
+import javax.servlet.*;
 import java.io.IOException;
 
 /**
@@ -11,17 +12,37 @@ import java.io.IOException;
  */
 public class HelloServlet implements Servlet {
     @Override
-    public void service(Request req, Response resp) {
+    public void service(ServletRequest req, ServletResponse res) {
         String doc = "<!DOCTYPE html> \n" +
                 "<html>\n" +
-                "<head><meta charset=\"utf-8\"><title>Test</title></head>\n"+
+                "<head><meta charset=\"utf-8\"><title>Test</title></head>\n" +
                 "<body bgcolor=\"#f0f0f0\">\n" +
                 "<h1 align=\"center\">" + "Hello World 你好" + "</h1>\n";
         try {
-            resp.getOutputStream().write(doc.getBytes("utf-8"));
+            res.setCharacterEncoding(Constants.UTF_8);
+            res.getWriter().println(doc);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void init(ServletConfig config) throws ServletException {
+
+    }
+
+    @Override
+    public ServletConfig getServletConfig() {
+        return null;
+    }
+
+    @Override
+    public String getServletInfo() {
+        return null;
+    }
+    @Override
+    public void destroy() {
+
     }
 
     /*

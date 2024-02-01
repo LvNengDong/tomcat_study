@@ -11,6 +11,10 @@ public class Constants {
     public static final String WEB_ROOT = System.getProperty("user.dir") + File.separator + "mini-tomcat/src/webroot";
     public static final String WEB_SERVLET_ROOT = System.getProperty("user.dir") + File.separator + "mini-tomcat/src/webroot/test";
     public static final int BUFFER_SIZE = 1024;
+    public static final String UTF_8 = "UTF-8";
+    public static final String HOST = "UTF-8";
+    public static final int PORT = 8080;
+
 
     public static void main(String[] args) {
         String currentDir = System.getProperty("user.dir");

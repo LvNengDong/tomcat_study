@@ -26,22 +26,9 @@ public class HttpServer {
      * 启动服务器，持续监听请求
      * */
     public void await() {
-        int port = 8080;
-        ServerSocket serverSocket = null;
-        try {
-            serverSocket = new ServerSocket(port, 1, InetAddress.getByName("127.0.0.1"));
-            log.info("服务器启动成功");
-        } catch (IOException e) {
-            log.error("Socket服务启动失败 {}", this.getClass(), e);
-            /*
-                System.exit(1) 是 Java 中的一个方法，用于终止当前正在运行的 Java 虚拟机（JVM）。
-                当调用 System.exit(1) 时，JVM 将会立即停止运行，并返回一个指定的退出状态码。
-                在这里，参数 1 表示非正常退出，通常用于表示程序发生了错误或异常情况。
-                System.exit(1) 的调用会导致程序立即终止，不会执行后续的代码。它可以用于在程序发生严重错误或异常时，强制终止程序的执行
-             */
-            System.exit(1);
-        }
-
+        // 创建 ServerSocket
+        ServerSocket serverSocket = initServerSocket();
+        // 持续监听请求
         while (true) {
             try {
                 // 建立连接
@@ -70,7 +57,24 @@ public class HttpServer {
             } catch (IOException e) {
                 log.error("Socket服务数据传输异常 {}", this.getClass(), e);
             }
+        }
+    }
 
+    private static ServerSocket initServerSocket() {
+        try {
+            log.info("mini-tomcat服务启动 start");
+            ServerSocket serverSocket = new ServerSocket(Constants.PORT, 1, InetAddress.getByName(Constants.HOST));
+            log.info("mini-tomcat服务启动 end");
+            return serverSocket;
+        } catch (IOException e) {
+            log.error("mini-tomcat服务启动失败", e);
+            /*
+                System.exit(1) 是 Java 中的一个方法，用于终止当前正在运行的 Java 虚拟机（JVM）。
+                当调用 System.exit(1) 时，JVM 将会立即停止运行，并返回一个指定的退出状态码。
+                在这里，参数 1 表示非正常退出，通常用于表示程序发生了错误或异常情况。
+                System.exit(1) 的调用会导致程序立即终止，不会执行后续的代码。它可以用于在程序发生严重错误或异常时，强制终止程序的执行
+             */
+            System.exit(1);
         }
     }
 }
