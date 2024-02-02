@@ -34,7 +34,7 @@ public class Request implements ServletRequest {
      * 解析InputStream
      * */
     public void parse() {
-        StringBuffer request = new StringBuffer();
+        StringBuilder request = new StringBuilder();
         int i;
         byte[] buffer = new byte[2048];
         try {

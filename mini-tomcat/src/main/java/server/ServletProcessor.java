@@ -36,7 +36,7 @@ public class ServletProcessor {
         String uri = request.getUri();
         // 按照简单规则确定servlet名，认为uri最后一个 / 符号后面的字符串就是是 servlet 的名字
         String servletName = uri.substring(uri.lastIndexOf("/") + 1);
-
+        log.info("uri:{} >> servlet:{}", uri, servletName);
         URLClassLoader loader = null; //加载路径
         PrintWriter writer = null;
 
@@ -48,7 +48,8 @@ public class ServletProcessor {
             log.info("URLClassLoaderSource:{}", repository);
             urls[0] = new URL(null, repository, streamHandler);
             log.info("urls:{}", JSON.toJSONString(urls));
-            loader = new URLClassLoader(urls);
+            //loader = new URLClassLoader(urls);
+            loader = new URLClassLoader(new URL[]{new URL("file:/Users/workspace/tomcat-study/mini-tomcat/src/webroot/test/")});
         } catch (IOException e) {
             log.error("server.ServletProcessor.process 发生异常", e);
             throw new RuntimeException(e);
@@ -65,7 +66,7 @@ public class ServletProcessor {
         Class<?> servletClass = null;
         try {
             log.info("加载servlet，servletName:{}", servletName);
-            servletClass = loader.loadClass(servletName);
+            servletClass = loader.loadClass("HelloServlet");
         } catch (ClassNotFoundException e) {
             log.error("server.ServletProcessor.process 发生异常", e);
             throw new RuntimeException(e);
