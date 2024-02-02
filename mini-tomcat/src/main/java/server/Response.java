@@ -1,6 +1,5 @@
 package server;
 
-import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.ServletOutputStream;
