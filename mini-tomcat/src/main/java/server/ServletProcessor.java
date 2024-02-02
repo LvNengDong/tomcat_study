@@ -33,55 +33,44 @@ public class ServletProcessor {
      * @param response
      */
     public void process(Request request, Response response) {
-        String uri = request.getUri();
-        // 按照简单规则确定servlet名，认为uri最后一个 / 符号后面的字符串就是是 servlet 的名字
-        String servletName = uri.substring(uri.lastIndexOf("/") + 1);
-        log.info("uri:{} >> servlet:{}", uri, servletName);
-        URLClassLoader loader = null; //加载路径
-        PrintWriter writer = null;
-
-        URL[] urls = new URL[1];
-        URLStreamHandler streamHandler = null;
-        File classPath = new File(Constants.WEB_SERVLET_ROOT);
         try {
+            String uri = request.getUri();
+            // 按照简单规则确定servlet名，认为uri最后一个 / 符号后面的字符串就是是 servlet 的名字
+            String servletName = uri.substring(uri.lastIndexOf("/") + 1);
+            log.info("uri:{} >> servlet:{}", uri, servletName);
+            //URLClassLoader loader = null; //加载路径
+            PrintWriter writer = null;
+            URLClassLoader loader;
+            URL[] urls = new URL[1];
+            URLStreamHandler streamHandler = null;
+            File classPath = new File(Constants.WEB_SERVLET_ROOT);
             String repository = (new URL("file", null, classPath.getCanonicalPath() + File.separator)).toString();
             log.info("URLClassLoaderSource:{}", repository);
             urls[0] = new URL(null, repository, streamHandler);
             log.info("urls:{}", JSON.toJSONString(urls));
-            //loader = new URLClassLoader(urls);
-            loader = new URLClassLoader(new URL[]{new URL("file:/Users/workspace/tomcat-study/mini-tomcat/src/webroot/test/")});
-        } catch (IOException e) {
-            log.error("server.ServletProcessor.process 发生异常", e);
-            throw new RuntimeException(e);
-        }
+            loader = new URLClassLoader(urls);
 
-        // 获取PrintWriter
-        try {
+            // 获取PrintWriter
             response.setCharacterEncoding("UTF-8");
             writer = response.getWriter();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        // 加载 servlet
-        Class<?> servletClass = null;
-        try {
+            // 加载 servlet
+            Class<?> servletClass = null;
             log.info("加载servlet，servletName:{}", servletName);
+            loader = new URLClassLoader(new URL[]{new URL("file:/Users/workspace/tomcat-study/mini-tomcat/src/webroot/test/")});
             servletClass = loader.loadClass("HelloServlet");
-        } catch (ClassNotFoundException e) {
-            log.error("server.ServletProcessor.process 发生异常", e);
-            throw new RuntimeException(e);
-        }
-        // 写响应头
-        String head = composeResponseHead();
-        writer.println(head);
-        Servlet servlet = null;
-        try {
+            // 写响应头
+            String head = composeResponseHead();
+            writer.println(head);
+            Servlet servlet = null;
             // 创建servlet实例，并调用service方法，处理response响应体
             servlet = (Servlet) servletClass.newInstance();
             servlet.service(request, response);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        }catch (Exception e){
+            e.printStackTrace();
         }
+
+
+
     }
 
     private String composeResponseHead() {
