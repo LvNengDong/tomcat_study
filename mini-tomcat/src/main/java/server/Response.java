@@ -20,7 +20,7 @@ import java.util.Locale;
 public class Response implements ServletResponse {
 
 
-    private ServletOutputStream outputStream;
+    private OutputStream outputStream;
     private Request request;
 
     PrintWriter writer;
@@ -33,7 +33,7 @@ public class Response implements ServletResponse {
     }
 
     public Response(OutputStream outputStream) {
-        this.outputStream = (ServletOutputStream) outputStream;
+        this.outputStream = outputStream;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class Response implements ServletResponse {
 
     @Override
     public ServletOutputStream getOutputStream() {
-        return this.outputStream;
+        return (ServletOutputStream) outputStream;
     }
 
     @Override

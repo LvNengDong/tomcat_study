@@ -8,8 +8,8 @@ import java.io.File;
  * @Date 2024/1/10 22:54
  */
 public class Constants {
-    public static final String WEB_ROOT = System.getProperty("user.dir") + File.separator + "mini-tomcat/src/webroot";
-    public static final String WEB_SERVLET_ROOT = System.getProperty("user.dir") + File.separator + "mini-tomcat/src/webroot/test";
+    public static final String WEB_ROOT = System.getProperty("user.dir") + File.separator + "src/webroot";
+    public static final String WEB_SERVLET_ROOT = System.getProperty("user.dir") + File.separator + "src/webroot/test";
     public static final int BUFFER_SIZE = 1024;
     public static final String UTF_8 = "UTF-8";
     public static final String HOST = "127.0.0.1";

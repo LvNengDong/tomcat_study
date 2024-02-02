@@ -56,8 +56,7 @@ public class ServletProcessor {
             // 加载 servlet
             Class<?> servletClass = null;
             log.info("加载servlet，servletName:{}", servletName);
-            loader = new URLClassLoader(new URL[]{new URL("file:/Users/workspace/tomcat-study/mini-tomcat/src/webroot/test/")});
-            servletClass = loader.loadClass("HelloServlet");
+            servletClass = loader.loadClass(servletName);
             // 写响应头
             String head = composeResponseHead();
             writer.println(head);
