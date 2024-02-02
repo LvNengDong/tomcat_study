@@ -41,7 +41,7 @@ public class ServletProcessor {
 
         URL[] urls = new URL[1];
         URLStreamHandler streamHandler = null;
-        File classPath = new File(Constants.WEB_ROOT);
+        File classPath = new File(Constants.WEB_SERVLET_ROOT);
         try {
             String repository = (new URL("file", null, classPath.getCanonicalPath() + File.separator)).toString();
             log.info("URLClassLoaderSource:{}", repository);
