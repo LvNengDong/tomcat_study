@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0a7475cc-a51c-40c7-a807-cae5b0089e24" name="Changes" comment="临时" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="V1_2024_01" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="/Library/dev/apache-maven-3.0.5" />
+        <option name="userSettingsFile" value="/Library/dev/apache-maven-3.0.5/conf/settings.qunar.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="#JAVA_HOME" />
+    <option name="vmOptions" value="-DarchetypeCatalog=internal" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2alWMKzBLM0QWdkxiipWOi1IP9x" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="false" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "V3__2024__01",
+    "jdk.selected.JAVA_MODULE": "11 (2)",
+    "last_opened_file_path": "/Users/workspace/tomcat-study/mini-tomcat/src/webroot/test",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.12218964",
+    "project.structure.side.proportion": "0.284342",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mini-tomcat/src/webroot/test" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/mini-tomcat/src" />
+      <recent name="$PROJECT_DIR$/mini-tomcat/src/main" />
+      <recent name="$PROJECT_DIR$/mini-tomcat/src/main/java" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.HttpServer">
+    <configuration name="Constants" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.Constants" />
+      <module name="mini-tomcat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HttpServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.HttpServer" />
+      <module name="mini-tomcat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HttpServer2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="server.HttpServer2" />
+      <module name="mini-tomcat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="mini-tomcat" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReflectTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ReflectTest" />
+      <module name="mini-tomcat" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ReflectTest" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.HttpServer2" />
+        <item itemvalue="Application.HttpServer" />
+        <item itemvalue="Application.Constants" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0a7475cc-a51c-40c7-a807-cae5b0089e24" name="Changes" comment="" />
+      <created>1704893596432</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704893596432</updated>
+      <workItem from="1704893597459" duration="8196000" />
+      <workItem from="1705064038069" duration="849000" />
+      <workItem from="1705477108380" duration="403000" />
+      <workItem from="1705585588919" duration="1383000" />
+      <workItem from="1705586981511" duration="1935000" />
+      <workItem from="1705839764658" duration="6371000" />
+      <workItem from="1705909876829" duration="45000" />
+      <workItem from="1706261003758" duration="2849000" />
+      <workItem from="1706604084180" duration="132000" />
+      <workItem from="1706624128092" duration="25000" />
+      <workItem from="1706624426868" duration="877000" />
+      <workItem from="1706687568883" duration="6221000" />
+      <workItem from="1706769992587" duration="47000" />
+      <workItem from="1706770070061" duration="156000" />
+      <workItem from="1706861052180" duration="205000" />
+      <workItem from="1706861264265" duration="4719000" />
+      <workItem from="1706866561803" duration="38000" />
+      <workItem from="1706866733896" duration="16000" />
+      <workItem from="1706866776978" duration="87000" />
+      <workItem from="1706866870807" duration="12000" />
+      <workItem from="1706866901051" duration="1409000" />
+    </task>
+    <task id="LOCAL-00001" summary="测试提交">
+      <option name="closed" value="true" />
+      <created>1704893715329</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1704893715329</updated>
+    </task>
+    <task id="LOCAL-00002" summary="测试提交">
+      <option name="closed" value="true" />
+      <created>1704901936116</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1704901936116</updated>
+    </task>
+    <task id="LOCAL-00003" summary="v1">
+      <option name="closed" value="true" />
+      <created>1704902088840</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1704902088840</updated>
+    </task>
+    <task id="LOCAL-00004" summary="分支重命名">
+      <option name="closed" value="true" />
+      <created>1705477287062</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705477287062</updated>
+    </task>
+    <task id="LOCAL-00005" summary="本地提交">
+      <option name="closed" value="true" />
+      <created>1705844257662</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705844257662</updated>
+    </task>
+    <task id="LOCAL-00006" summary="本地提交">
+      <option name="closed" value="true" />
+      <created>1705846052608</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705846052608</updated>
+    </task>
+    <task id="LOCAL-00007" summary="测试类">
+      <option name="closed" value="true" />
+      <created>1706261393893</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1706261393893</updated>
+    </task>
+    <task id="LOCAL-00008" summary="测试类">
+      <option name="closed" value="true" />
+      <created>1706604109729</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1706604109729</updated>
+    </task>
+    <task id="LOCAL-00009" summary="临时">
+      <option name="closed" value="true" />
+      <created>1706770083275</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1706770083275</updated>
+    </task>
+    <task id="LOCAL-00010" summary="临时">
+      <option name="closed" value="true" />
+      <created>1706863835251</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1706863835251</updated>
+    </task>
+    <task id="LOCAL-00011" summary="临时">
+      <option name="closed" value="true" />
+      <created>1706864261354</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1706864261354</updated>
+    </task>
+    <task id="LOCAL-00012" summary="临时">
+      <option name="closed" value="true" />
+      <created>1706866091922</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1706866091922</updated>
+    </task>
+    <task id="LOCAL-00013" summary="临时">
+      <option name="closed" value="true" />
+      <created>1706866306751</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1706866306751</updated>
+    </task>
+    <task id="LOCAL-00014" summary="临时">
+      <option name="closed" value="true" />
+      <created>1706866431027</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1706866431027</updated>
+    </task>
+    <task id="LOCAL-00015" summary="临时">
+      <option name="closed" value="true" />
+      <created>1706866530909</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1706866530909</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="测试提交" />
+    <MESSAGE value="v1" />
+    <MESSAGE value="分支重命名" />
+    <MESSAGE value="本地提交" />
+    <MESSAGE value="测试类" />
+    <MESSAGE value="临时" />
+    <option name="LAST_COMMIT_MESSAGE" value="临时" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="java-line">
+          <url>jar:///Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/ClassLoader.java</url>
+          <line>520</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mini-tomcat/src/main/java/server/StatisResourceProcessor.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/mini-tomcat/src/main/java/server/HttpServer.java</url>
+          <line>51</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.ClassNotFoundException" package="java.lang" />
+          <option name="timeStamp" value="5" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
