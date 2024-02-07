@@ -15,11 +15,11 @@ import java.util.HashMap;
 
 /**
  * @Author lnd
- * @Description
+ * @Description static
  * @Date 2024/1/17 15:43
  */
 @Slf4j
-public class StatisResourceProcessor {
+public class StaticResourceProcessor {
 
     /**
      * 返回静态资源数据

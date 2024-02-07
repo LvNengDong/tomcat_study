@@ -38,7 +38,7 @@ public class HttpProcessor {
                 log.info("处理Input，请求动态资源，servlet处理，end uri:{}", request.getUri());
             } else {
                 log.info("处理Input，请求静态资源，servlet处理，start uri:{}", request.getUri());
-                StatisResourceProcessor processor = new StatisResourceProcessor();
+                StaticResourceProcessor processor = new StaticResourceProcessor();
                 processor.process(request, response);
                 log.info("处理Input，请求静态资源，servlet处理，end uri:{}", request.getUri());
             }
