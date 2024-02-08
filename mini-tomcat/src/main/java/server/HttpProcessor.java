@@ -14,7 +14,7 @@ import java.net.Socket;
  */
 @Slf4j
 @NoArgsConstructor
-public class HttpProcessor {
+public class HttpProcessor implements Runnable {
 
     public void process(Socket socket) {
         InputStream input = null;
@@ -48,6 +48,11 @@ public class HttpProcessor {
         }finally {
 
         }
+
+    }
+
+    @Override
+    public void run() {
 
     }
 }
