@@ -35,7 +35,7 @@ public class HttpConnector implements Runnable {
                 processors.push(new HttpProcessor());
             }
             curProcessors = minProcessors;
-            log.info("初始化处理器池 end 当前处理器数量已达到minProcessors");
+            log.info("初始化处理器池 end 当前处理器数量 curProcessors:{}", curProcessors);
 
             // 持续监听请求
             while (true) {
@@ -81,13 +81,13 @@ public class HttpConnector implements Runnable {
     }
 
     /**
-     * 从池子中获取一个processor，如果池子为空且小于最大限制，则新建一
+     * 从池子中获取一个processor，如果池子为空且小于最大限制，则新建一个
      *
      * 注意并发处理
      * @return
      */
     private HttpProcessor createProcessor() {
-        synchronized (this.processors) {
+        synchronized (this.processors) { //monitor对象锁
             if (!this.processors.isEmpty()) {
                 return processors.pop();
             }
