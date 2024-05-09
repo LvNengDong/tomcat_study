@@ -28,42 +28,47 @@ public class HttpConnector implements Runnable {
         try {
             log.info("mini-tomcat服务启动 start");
             ServerSocket serverSocket = new ServerSocket(Constants.PORT, 1, InetAddress.getByName(Constants.HOST));
-            log.info("mini-tomcat服务启动 end");
+            log.info("mini-tomcat服务启动 end，服务器地址:{}", Constants.HOST + ":" + Constants.PORT);
 
-            log.info("初始化处理器池 start");
-            for (int i = 0; i < minProcessors; i++) {
-                processors.push(new HttpProcessor());
+            log.info("初始化服务器的处理器 start");
+            for (int i = 0; i < minProcessors; i++) { //这里的处理有点类似于线程池的核心线程数，在未达到核心线程数之前，每次处理新任务都是新建一个处理器
+                HttpProcessor initProcessor = new HttpProcessor(this);
+                initProcessor.start(); // 在初始化服务器中的HttpConnector时，将HttpProcessor的个数初始化到minProcessors，并让每个HttpProcessor处理器处于待命(阻塞)状态
+                processors.push(initProcessor);
             }
             curProcessors = minProcessors;
-            log.info("初始化处理器池 end 当前处理器数量 curProcessors:{}", curProcessors);
+            log.info("初始化服务器的处理器 end 当前HttpProcessor处理器数量 curProcessors:{}", curProcessors);
 
             // 持续监听请求
             while (true) {
                 try {
-                    log.info("建立Socket连接 ready");
-                    Socket socket = serverSocket.accept(); // accept方法会为每一个连接都生成一个socket对象，如果同时有多个连接，就会生成多个socket对象
-                    log.info("建立Socket连接 end =======obj:{}", socket);
+                    log.info("监听到客户端请求建立Socket连接 start");
+                    Socket socket = serverSocket.accept(); // accept方法会为每一个连接都生成一个socket对象，如果同时有多个并发请求请求建立连接，就会生成多个socket对象
+                    log.info("客户端请求建立Socket连接 end =======obj:{}", socket);
 
-                    log.info("获取Servlet处理器 start");
-                    HttpProcessor processor = createProcessor();
+                    log.info("获取HttpProcessor处理器 start");
+                    HttpProcessor processor = createProcessor(); //线程安全，锁对象为处理器队列【processors】，即同一时间只能有一个线程从processors中获取处理器
                     if (Objects.isNull(processor)) {
-                        log.info("获取Servlet处理器 error 未获取到处理器，关闭Socket：{}", socket);
+                        log.info("获取HttpProcessor处理器 error 未获取到处理器，丢弃当前Socket：{}", socket);
                         socket.close();
                         continue;
                     }
-                    log.info("获取Servlet处理器 end");
+                    log.info("获取HttpProcessor处理器 end");
 
-                    log.info("Servlet处理 start");
-                    processor.process(socket);
-                    log.info("Servlet处理 end");
+                    // 把Socket分配给HttpProcessor处理器，并唤醒HttpProcessor所在的线程
+                    processor.assign(socket);
 
-                    log.info("释放Servlet处理器 start");
-                    this.processors.push(processor);
-                    log.info("释放Servlet处理器 end");
-
-                    log.info("关闭连接 start");
-                    socket.close();
-                    log.info("关闭连接 end");
+                    //log.info("Servlet处理 start");
+                    //processor.process(socket);
+                    //log.info("Servlet处理 end");
+                    //
+                    //log.info("释放Servlet处理器 start");
+                    //this.processors.push(processor);
+                    //log.info("释放Servlet处理器 end");
+                    //
+                    //log.info("关闭连接 start");
+                    //socket.close();
+                    //log.info("关闭连接 end");
                 } catch (IOException e) {
                     log.error("Socket服务数据传输异常 {}", this.getClass(), e);
                 }
@@ -101,7 +106,7 @@ public class HttpConnector implements Runnable {
     }
 
     private HttpProcessor newProcessor() {
-        HttpProcessor processor = new HttpProcessor();
+        HttpProcessor processor = new HttpProcessor(this);
         processors.push(processor);
         this.curProcessors++;
         return processors.pop();
@@ -110,5 +115,26 @@ public class HttpConnector implements Runnable {
     public void start() {
         Thread thread = new Thread(this);
         thread.start();
+    }
+
+    boolean available = true; // Processor会把这个标志置为false
+    Socket socket;
+    synchronized void assign(Socket socket) {
+        while (available) {
+            try {
+                wait(); // monitor对象锁
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        // 到了某个时候，Processor 线程把available标志设置为 false，Connector 线程就跳出死等的循环，然后把接收到的 Socket 交给 Processor。
+        this.socket = socket;
+        // 然后要立刻重新把 available 标志设置为 true，再调用 notifyAll() 通知其他线程。
+        available = true;
+        notifyAll();
+    }
+
+    public void recycle(HttpProcessor httpProcessor) {
+        processors.push(httpProcessor);
     }
 }
